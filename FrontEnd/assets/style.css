@@ -188,6 +188,13 @@ footer nav ul {
 
 
 /* ############# MODIFICATION PERSO ################## */
+.error{
+	grid-column: 2;
+	text-align: center;
+	font-size: 2rem;
+	color: red;
+}
+
 .filters{
 	display: flex;
 	justify-content: center;

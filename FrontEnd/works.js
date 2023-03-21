@@ -32,14 +32,18 @@ function generationProjets(data, id) {
 
     if (data.length === 0) { 
         const p = document.createElement("p");
-        p.innerHTML = "Aucun projet à afficher";
+        p.classList.add("error");
+        p.innerHTML = "Aucun projet à afficher <br><br>Toutes nos excuses pour la gêne occasionnée";
         sectionProjets.appendChild(p);
         return;
     }
 
     else if (id === "all") {
         console.log("DEBUG all")
+        
         for (let i = 0; i < data.length; i++) {  
+            const resultFilter = data.filter(data => data.categoryId === 1);
+            console.log(resultFilter);
             const figure = document.createElement("figure"); 
             sectionProjets.appendChild(figure);
 
@@ -54,66 +58,66 @@ function generationProjets(data, id) {
         }
         return;
     }
-    else if (id === 1) {
-        console.log("DEBUG id1")
-        for (let i = 0; i < data.length; i++) { 
-            if (data[i].categoryId === 1) {
-                const figure = document.createElement("figure"); 
-                sectionProjets.appendChild(figure);
+    // else if (id === 1) {
+    //     console.log("DEBUG id1")
+    //     for (let i = 0; i < data.length; i++) { 
+    //         if (data[i].categoryId === 1) {
+    //             const figure = document.createElement("figure"); 
+    //             sectionProjets.appendChild(figure);
 
-                const img = document.createElement("img");
-                img.src = data[i].imageUrl;
-                img.alt = data[i].title;
-                figure.appendChild(img);
+    //             const img = document.createElement("img");
+    //             img.src = data[i].imageUrl;
+    //             img.alt = data[i].title;
+    //             figure.appendChild(img);
 
-                const figcaption = document.createElement("figcaption");
-                figcaption.innerHTML = data[i].title;
-                figure.appendChild(figcaption);
-            }
-        }
-        return;
-    }
-    else if (id === 2) {
-        console.log("DEBUG id1")
-        for (let i = 0; i < data.length; i++) { 
-            if (data[i].categoryId === 2) {
-                const figure = document.createElement("figure"); 
-                sectionProjets.appendChild(figure);
+    //             const figcaption = document.createElement("figcaption");
+    //             figcaption.innerHTML = data[i].title;
+    //             figure.appendChild(figcaption);
+    //         }
+    //     }
+    //     return;
+    // }
+    // else if (id === 2) {
+    //     console.log("DEBUG id1")
+    //     for (let i = 0; i < data.length; i++) { 
+    //         if (data[i].categoryId === 2) {
+    //             const figure = document.createElement("figure"); 
+    //             sectionProjets.appendChild(figure);
 
-                const img = document.createElement("img");
-                img.src = data[i].imageUrl;
-                img.alt = data[i].title;
-                figure.appendChild(img);
+    //             const img = document.createElement("img");
+    //             img.src = data[i].imageUrl;
+    //             img.alt = data[i].title;
+    //             figure.appendChild(img);
 
-                const figcaption = document.createElement("figcaption");
-                figcaption.innerHTML = data[i].title;
-                figure.appendChild(figcaption);
-            }
-        }
-    }
-    else if (id === 3) {
-        console.log("DEBUG id1")
-        for (let i = 0; i < data.length; i++) { 
-            if (data[i].categoryId === 3) {
-                const figure = document.createElement("figure"); 
-                sectionProjets.appendChild(figure);
+    //             const figcaption = document.createElement("figcaption");
+    //             figcaption.innerHTML = data[i].title;
+    //             figure.appendChild(figcaption);
+    //         }
+    //     }
+    // }
+    // else if (id === 3) {
+    //     console.log("DEBUG id1")
+    //     for (let i = 0; i < data.length; i++) { 
+    //         if (data[i].categoryId === 3) {
+    //             const figure = document.createElement("figure"); 
+    //             sectionProjets.appendChild(figure);
 
-                const img = document.createElement("img");
-                img.src = data[i].imageUrl;
-                img.alt = data[i].title;
-                figure.appendChild(img);
+    //             const img = document.createElement("img");
+    //             img.src = data[i].imageUrl;
+    //             img.alt = data[i].title;
+    //             figure.appendChild(img);
 
-                const figcaption = document.createElement("figcaption");
-                figcaption.innerHTML = data[i].title;
-                figure.appendChild(figcaption);
-            }
-        }
-    } 
-    else 
-    {
+    //             const figcaption = document.createElement("figcaption");
+    //             figcaption.innerHTML = data[i].title;
+    //             figure.appendChild(figcaption);
+    //         }
+    //     }
+    // } 
+    else {
         console.log("ERREUR")
         const p = document.createElement("p");
-        p.innerHTML = "Une erruer est survenue, veuillez réessayer";
+        p.classList.add("error");
+        p.innerHTML = "Une erreur est survenue, veuillez réessayer <br><br>Toutes nos excuses pour la gêne occasionnée";
         sectionProjets.appendChild(p);
         return;
     }
