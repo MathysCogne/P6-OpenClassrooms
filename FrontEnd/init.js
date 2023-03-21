@@ -1,14 +1,24 @@
-let arrayProjets;
-// RECUPERATION DES DONNEES DE L'API
+///////////////////////////////////////////////////////////////////////
+////////////// RECUPERATION DES DONEES DEPUIS l'API ///////////////////
+///////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////
+// DONNES SECTION PROJETS 
+
+// let arrayProjets = {}; 
+
 fetch('http://localhost:5678/api/works') // Récupère les données de l'API
-.then(response => response.json()) // Transforme la réponse en JSON
+    .then(response => response.json()) // Transforme la réponse en JSON
+    .then(data => {
+        dataProjets(data)
+    }) 
+    .catch(error => console.error(error)); // Affiche les erreurs dans la console 
 
 
-.then(data => { // On récupère les données
-    arrayProjets = data; // On stocke les données dans un tableau
-    console.log(arrayProjets);  // On affiche les données dans la console
-})
+function dataProjets(data) {
+    console.log(data)
+}
+export {dataProjets};
 
-
-
-.catch(error => console.error(error)); // Affiche les erreurs dans la console
+///////////////////////////////////////////////////////////////////////
