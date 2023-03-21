@@ -186,3 +186,33 @@ footer nav ul {
 	margin: 2em
 }
 
+
+/* ############# MODIFICATION PERSO ################## */
+.filters{
+	display: flex;
+	justify-content: center;
+	margin: 40px 0;
+}
+
+.filter__btn{
+	font-family: 'Syne';
+	padding: 10px 20px;
+	margin: 0 5px;
+	border: 1px solid #1D6154;
+	border-radius: 25px;
+	color: #1D6154;
+	background-color: white;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+.filter__btn:hover{
+	color: white;
+	background-color: #1D6154;
+	scale: 1.05;
+}
+.btn-select{
+	color: white;
+	background-color: #1D6154;
+}

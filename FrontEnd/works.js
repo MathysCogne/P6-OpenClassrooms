@@ -28,8 +28,6 @@ function fetchProjets() {
 const sectionProjets = document.querySelector(".gallery"); 
 
 
-
-
 ///////////////////////////////////////////////////////////////////////
 function resetSectionProjets() {  
 	sectionProjets.innerHTML = "";
