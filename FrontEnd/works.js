@@ -5,11 +5,10 @@ const sectionProjets = document.querySelector(".gallery");
 
 // données de l'API pour les projets
 let data;
+
 const response = await fetch('http://localhost:5678/api/works'); 
 data = await response.json();
 
-console.log(">>>>>>>>>>>>>> DEBUG DATA <<<<<<<<<<<<<<<<");
-console.log(data);
 
 generationProjets(data, null);
 
@@ -27,7 +26,7 @@ function resetSectionProjets() {
 function generationProjets(data, id) { 
     console.log(data, id)
     resetSectionProjets()
-
+    
     // Si pb avec la BDD, erreur
     if (data.length === 0 || data === undefined) { 
         const p = document.createElement("p");
@@ -98,39 +97,17 @@ const btnId3 = document.querySelector(".filter__btn-id3");
 
 // Tous 
 btnAll.addEventListener("click", () => {
-    console.log("click sur btnAll");
     generationProjets(data, null);
 })
 // Objets
 btnId1.addEventListener("click", () => {
-    console.log("click sur btnId1");
     generationProjets(data, 1);
 })
 // Appartements
 btnId2.addEventListener("click", () => {
-    console.log("click sur btnId2");
     generationProjets(data, 2);
 })
 // Hôtels & restaurants
 btnId3.addEventListener("click", () => {
-    console.log("click sur btnId3");
     generationProjets(data, 3);
 })
-////////////////////////////////////////////////////
-
-
-
-
-
-
-//////////////////////////////////////////////////
-////////////// LOGIN ADMIN ///////////////////////
-//////////////////////////////////////////////////
-
-// En suivant la maquette, il faudra intégrer le formulaire de connexion au site. 
-
-// Lorsque le couple identifiant et mot de passe n’est pas bon pour se connecter il faut afficher le message d’erreur: 
-
-// “Erreur dans l’identifiant ou le mot de passe”
-
-// Lorsque le couple identifiant et mot de passe est correct, alors il faut rediriger vers la page du site avec cette fois ci des boutons d’actions pour éditer le site.
