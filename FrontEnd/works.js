@@ -117,3 +117,20 @@ btnId3.addEventListener("click", () => {
     generationProjets(data, 3);
 })
 ////////////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////
+////////////// LOGIN ADMIN ///////////////////////
+//////////////////////////////////////////////////
+
+// En suivant la maquette, il faudra intégrer le formulaire de connexion au site. 
+
+// Lorsque le couple identifiant et mot de passe n’est pas bon pour se connecter il faut afficher le message d’erreur: 
+
+// “Erreur dans l’identifiant ou le mot de passe”
+
+// Lorsque le couple identifiant et mot de passe est correct, alors il faut rediriger vers la page du site avec cette fois ci des boutons d’actions pour éditer le site.
