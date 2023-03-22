@@ -11,8 +11,16 @@
 	<link rel="stylesheet" href="./assets/style.css"> 
 	<script type="module" src="works.js"></script> 
 	<!-- <script type="module" src="login.js"></script>  -->
+	<script src="https://kit.fontawesome.com/73db696eb9.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<aside class="admin__rod">
+	<div class="admin__modifer">
+		<i class="fa-solid fa-pen-to-square"></i>
+		<p>Mode édition</p>
+	</div>
+	<button>Publier les changements</button>
+</aside>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
@@ -34,8 +42,16 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
+			<div class="admin__modifer">
+				<i class="fa-solid fa-pen-to-square"></i>
+				<a href="">Modifier</a>
+			</div>
 		</figure>
 		<article>
+			<div class="admin__modifer">
+				<i class="fa-solid fa-pen-to-square"></i>
+				<a href="">Modifier</a>
+			</div>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
@@ -43,7 +59,13 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="portfolio-title">
+			<h2>Mes Projets</h2>
+			<div class="admin__modifer">
+				<i class="fa-solid fa-pen-to-square"></i>
+				<a href="">Modifier</a>
+			</div>
+		</div>
 		<div class="filters">
 			<button class="filter__btn filter__btn-all btn-select">Tous</button>
 			<button class="filter__btn filter__btn-id1">Objets</button>
