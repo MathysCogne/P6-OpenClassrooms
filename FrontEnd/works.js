@@ -4,7 +4,6 @@
 
 const sectionProjets = document.querySelector(".gallery"); 
 
-
 // DONNES SECTION PROJETS 
 
 let data;
@@ -14,7 +13,7 @@ data = await response.json();
 console.log(">>>>>>>>>>>>>> DEBUG DATA <<<<<<<<<<<<<<<<");
 console.log(data);
 
-generationProjets(data, "all");
+generationProjets(data, null);
 
 ////////////////////////////////////////////////////
 ////////////// GENERARTION /////////////////////////
@@ -37,13 +36,9 @@ function generationProjets(data, id) {
         sectionProjets.appendChild(p);
         return;
     }
-
-    else if (id === "all") {
-        console.log("DEBUG all")
-        
-        for (let i = 0; i < data.length; i++) {  
-            const resultFilter = data.filter(data => data.categoryId === 1);
-            console.log(resultFilter);
+    else if (id === null) {
+        for (let i = 0; i < data.length; i++) {
+            
             const figure = document.createElement("figure"); 
             sectionProjets.appendChild(figure);
 
@@ -54,6 +49,24 @@ function generationProjets(data, id) {
 
             const figcaption = document.createElement("figcaption");
             figcaption.innerHTML = data[i].title;
+            figure.appendChild(figcaption);
+        }
+        return;
+    }
+    else if (id === 1 || id === 2 || id === 3) {
+        const resultFilter = data.filter(data => data.categoryId == id); // filtre les données
+        for (let i = 0; i < resultFilter.length; i++) {  // boucle sur les données en fonction du filtre
+            
+            const figure = document.createElement("figure"); 
+            sectionProjets.appendChild(figure);
+
+            const img = document.createElement("img");
+            img.src = resultFilter[i].imageUrl;
+            img.alt = resultFilter[i].title;
+            figure.appendChild(img);
+
+            const figcaption = document.createElement("figcaption");
+            figcaption.innerHTML = resultFilter[i].title;
             figure.appendChild(figcaption);
         }
         return;
@@ -135,7 +148,7 @@ const btnId3 = document.querySelector(".filter__btn-id3");
 // Tous
 btnAll.addEventListener("click", () => {
     console.log("click sur btnAll");
-    generationProjets(data, "all");
+    generationProjets(data, null);
 })
 // Objets
 btnId1.addEventListener("click", () => {
