@@ -352,3 +352,70 @@ a{
 
 /* MODALE  */
 
+/* <aside class="modale" aria-hidden="true">
+	<i class="fa-solid fa-xmark"></i>
+	<h2>Galerie photo</h2>
+	<div>
+		<!-- generation des photos dynamiquement -->
+	</div>
+	<button>Ajouter une photo</button>
+	<a href="">Supprimer la galerie</a>
+</aside> */
+
+.modale{
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+
+	animation: fadeIn 0.4s both;
+}
+.modale[aria-hidden="true"]{
+	animation-name: fadeOff;
+}
+
+.modale-wrapper{
+	display: flex;
+	flex-direction: column;
+
+	/* A CHANGER */
+	align-items: center;
+	justify-content: center;
+
+	overflow: auto;
+	max-width: calc(98vh - 20px);
+	max-height: calc(98vh - 20px);
+	width: 700px;
+	padding: 30px;
+	background-color: white;
+
+	animation: slideFromTop 0.4s both;
+}
+.modale[aria-hidden="true"] .modale-wrapper{
+	animation-name: slideFromBottom;
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@keyframes slideFromTop {
+	from {transform: translateY(-75px);}
+	to {transform: translateY(0px);}
+}
+
+@keyframes fadeOff {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@keyframes slideFromBottom {
+	from {transform: translateY(0px);}
+	to {transform: translateY(75px);}
+}

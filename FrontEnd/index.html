@@ -14,13 +14,29 @@
 	<script src="https://kit.fontawesome.com/73db696eb9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<aside class="admin__rod" aria-hidden="true">
+
+<aside class="admin__rod" aria-hidden="true" style="display: none;">
 	<div class="admin__modifer">
 		<i class="fa-solid fa-pen-to-square"></i>
 		<p>Mode édition</p>
 	</div>
 	<button>Publier les changements</button>
 </aside>
+
+<aside id="modale" class="modale" aria-hidden="true" style="display: none;">
+	<div class="modale-wrapper js-modale-stop">
+		<a href="" class="js-modale-close">
+			<i class="fa-solid fa-xmark"></i>
+		</a>
+		<h2>Galerie photo</h2>
+		<div>
+			<!-- generation des photos dynamiquement -->
+		</div>
+		<button>Ajouter une photo</button>
+		<a href="">Supprimer la galerie</a>	
+	</div>
+</aside>
+
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
@@ -42,15 +58,16 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
+			<!-- style="display: none;" -->
 			<div class="admin__modifer">
 				<i class="fa-solid fa-pen-to-square"></i>
-				<a href="">Modifier</a>
+				<a href="#modale" class="js-modale">Modifier</a>
 			</div>
 		</figure>
 		<article>
-			<div class="admin__modifer" aria-hidden="true">
+			<div class="admin__modifer" aria-hidden="true" style="display: none;">
 				<i class="fa-solid fa-pen-to-square"></i>
-				<a href="">Modifier</a>
+				<a href="#modale" class="js-modale">Modifier</a>
 			</div>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
@@ -61,9 +78,9 @@
 	<section id="portfolio">
 		<div class="portfolio-title">
 			<h2>Mes Projets</h2>
-			<div class="admin__modifer" aria-hidden="true">
+			<div class="admin__modifer" aria-hidden="true" style="display: none;">
 				<i class="fa-solid fa-pen-to-square"></i>
-				<a href="">Modifier</a>
+				<a href="#modale" class="js-modale">Modifier</a>
 			</div>
 		</div>
 		<div class="filters">
