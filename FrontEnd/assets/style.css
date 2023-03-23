@@ -466,3 +466,21 @@ a{
 	object-fit: cover;
 	margin-bottom: 5px;
 }
+.fa-trash-alt:before, .fa-trash-can:before {
+    /* position: relative; */
+	color: white;
+	background-color: black;
+	padding: 5px;
+	border-radius: 20%;
+}
+.gallery__item-modale a{
+	position: relative;
+	bottom: 116px;
+	left: 68px; 
+	width: 30px;
+	height: 30px;
+}
+.gallery__item-modale p{
+	position: relative;
+	bottom: 15px;
+}

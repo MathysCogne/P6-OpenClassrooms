@@ -116,6 +116,15 @@ function modaleProjets(dataAdmin) {
         img.alt = dataAdmin[i].title;
         div.appendChild(img);
 
+        const a = document.createElement("a");
+        div.appendChild(a);
+        a.setAttribute("href", "#")
+        a.classList.add(i);
+
+        const icon = document.createElement("i");
+        icon.classList.add("fa-solid", "fa-trash-can"); 
+        a.appendChild(icon);
+
         const p = document.createElement("p");
         p.innerHTML = "Éditer";
         div.appendChild(p);
