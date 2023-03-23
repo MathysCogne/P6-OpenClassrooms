@@ -35,9 +35,12 @@ function generationProjets(data, id) {
         sectionProjets.appendChild(p);
         return;
     }
-
-    // Si id est null, on affiche tous les projets
-    else if (id === null) {
+    // Filtre
+    if ([1, 2, 3].includes(id)) {
+        data = data.filter(data => data.categoryId == id);
+    }
+    // Génère les projets
+    if (id === null || [1, 2, 3].includes(id)) {
         for (let i = 0; i < data.length; i++) {
             
             const figure = document.createElement("figure"); 
@@ -54,27 +57,6 @@ function generationProjets(data, id) {
         }
         return;
     }
-
-    // Si id est 1, 2 ou 3, on affiche les projets selon leurs ID
-    else if (id === 1 || id === 2 || id === 3) {
-        const resultFilter = data.filter(data => data.categoryId == id); // filtre les données
-        for (let i = 0; i < resultFilter.length; i++) {  // boucle sur les données en fonction du filtre
-            
-            const figure = document.createElement("figure"); 
-            sectionProjets.appendChild(figure);
-
-            const img = document.createElement("img");
-            img.src = resultFilter[i].imageUrl;
-            img.alt = resultFilter[i].title;
-            figure.appendChild(img);
-
-            const figcaption = document.createElement("figcaption");
-            figcaption.innerHTML = resultFilter[i].title;
-            figure.appendChild(figcaption);
-        }
-        return;
-    }
-
     // sinon erreur
     else {
         console.log("ERREUR")
