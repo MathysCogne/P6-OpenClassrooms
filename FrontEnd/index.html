@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<aside class="admin__rod" aria-hidden="true" style="display: none;">
+<aside class="admin__rod admin__modifer" aria-hidden="true" style="display: none;">
 	<div class="admin__modifer">
 		<i class="fa-solid fa-pen-to-square"></i>
 		<p>Mode édition</p>
@@ -23,17 +23,18 @@
 	<button>Publier les changements</button>
 </aside>
 
+
 <aside id="modale" class="modale" aria-hidden="true" style="display: none;">
 	<div class="modale-wrapper js-modale-stop">
 		<a href="" class="js-modale-close">
 			<i class="fa-solid fa-xmark"></i>
 		</a>
 		<h2>Galerie photo</h2>
-		<div>
+		<div class="js-admin-projets">
 			<!-- generation des photos dynamiquement -->
 		</div>
-		<button>Ajouter une photo</button>
-		<a href="">Supprimer la galerie</a>	
+		<button class="btn-admin">Ajouter une photo</button>
+		<a class="btn-clear-admin" href="#">Supprimer la galerie</a>	
 	</div>
 </aside>
 
@@ -58,8 +59,7 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
-			<!-- style="display: none;" -->
-			<div class="admin__modifer">
+			<div class="admin__modifer" style="display: none;">
 				<i class="fa-solid fa-pen-to-square"></i>
 				<a href="#modale" class="js-modale">Modifier</a>
 			</div>

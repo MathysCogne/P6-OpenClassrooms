@@ -227,7 +227,7 @@ a{
 	justify-content: center;
 	margin: 40px 0;
 }
-.filter__btn{
+.filter__btn, .btn-admin{
 	font-family: 'Syne';
 	padding: 10px 20px;
 	margin: 0 15px;
@@ -240,12 +240,12 @@ a{
 	cursor: pointer;
 	transition: all 0.5s ease;
 }
-.filter__btn:hover{
+.filter__btn:hover, .btn-admin:hover{
 	color: white;
 	background-color: #1D6154;
 	scale: 1.05;
 }
-.btn-select{
+.btn-select, .btn-admin{
 	color: white;
 	background-color: #1D6154;
 }
@@ -386,8 +386,8 @@ a{
 	flex-direction: column;
 
 	/* A CHANGER */
-	align-items: center;
-	justify-content: center;
+	/* align-items: center;
+	justify-content: center; */
 
 	overflow: auto;
 	max-width: calc(98vh - 20px);
@@ -418,4 +418,33 @@ a{
 @keyframes slideFromBottom {
 	from {transform: translateY(0px);}
 	to {transform: translateY(75px);}
+}
+
+.js-modale-close{
+	display: flex;
+	justify-content: flex-end;
+}
+.modale-wrapper h2{
+	display: flex;
+	justify-content: center;
+}
+.js-admin-projets::after{
+	display: flex;
+	
+	content: " ";
+	border-top: 1px solid black;
+	height: 1px;
+	width: 80%;
+	margin: 30px auto;
+}
+.btn-admin{
+	display: flex;
+	justify-content: center;
+	width: 300px;
+	margin: 30px auto;
+}
+.btn-clear-admin{
+	display: flex;
+	justify-content: center;
+	color: #D65353;
 }
