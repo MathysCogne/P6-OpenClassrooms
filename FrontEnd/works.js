@@ -5,9 +5,18 @@ const sectionProjets = document.querySelector(".gallery");
 
 // données de l'API pour les projets
 let data;
-
-const response = await fetch('http://localhost:5678/api/works'); 
-data = await response.json();
+try {
+    const response = await fetch('http://localhost:5678/api/works'); 
+    data = await response.json();
+}
+catch{
+    const p = document.createElement("p");
+    p.classList.add("error");
+    p.innerHTML = "Une erreur est survenue lors de la récupération des projets<br><br>Une tentative de reconnexion automatique auras lieu dans une minute<br><br><br><br>Si le problème persiste, veuillez contacter l'administrateur du site";
+    sectionProjets.appendChild(p);
+    await new Promise(resolve => setTimeout(resolve, 60000));
+    window.location.href = "index.html";
+}
 
 
 generationProjets(data, null);
@@ -26,8 +35,7 @@ function resetSectionProjets() {
 function generationProjets(data, id) { 
     console.log(data, id)
     resetSectionProjets()
-    
-    // Si pb avec la BDD, erreur
+
     if (data.length === 0 || data === undefined) { 
         const p = document.createElement("p");
         p.classList.add("error");
@@ -35,10 +43,16 @@ function generationProjets(data, id) {
         sectionProjets.appendChild(p);
         return;
     }
-    // Filtre
+    // Filtre les résultats
     if ([1, 2, 3].includes(id)) {
         data = data.filter(data => data.categoryId == id);
     }
+
+    // Change la couleur du bouton en fonction du filtre
+    document.querySelectorAll(".filter__btn").forEach(btn => {
+        btn.classList.remove("filter__btn--active");})
+    document.querySelector(`.filter__btn-id-${id}`).classList.add("filter__btn--active");
+
     // Génère les projets
     if (id === null || [1, 2, 3].includes(id)) {
         for (let i = 0; i < data.length; i++) {
@@ -57,25 +71,16 @@ function generationProjets(data, id) {
         }
         return;
     }
-    // sinon erreur
-    else {
-        console.log("ERREUR")
-        const p = document.createElement("p");
-        p.classList.add("error");
-        p.innerHTML = "Une erreur est survenue, veuillez réessayer <br><br>Toutes nos excuses pour la gêne occasionnée";
-        sectionProjets.appendChild(p);
-        return;
-    }
 }
 
 
 //////////////////////////////////////////////////
 ////////////// FILTRAGE //////////////////////////
 //////////////////////////////////////////////////
-const btnAll = document.querySelector(".filter__btn-all");
-const btnId1 = document.querySelector(".filter__btn-id1");
-const btnId2 = document.querySelector(".filter__btn-id2");
-const btnId3 = document.querySelector(".filter__btn-id3");
+const btnAll = document.querySelector(".filter__btn-id-null");
+const btnId1 = document.querySelector(".filter__btn-id-1");
+const btnId2 = document.querySelector(".filter__btn-id-2");
+const btnId3 = document.querySelector(".filter__btn-id-3");
 
 // Tous 
 btnAll.addEventListener("click", () => {
