@@ -1,5 +1,4 @@
-alredyLogged();
-
+const alredyLoggedError = document.querySelector(".alredyLogged__error"); 
 const loginEmailError = document.querySelector(".loginEmail__error"); 
 const loginMdpError = document.querySelector(".loginMdp__error"); 
 
@@ -8,12 +7,16 @@ const password = document.getElementById("password");
 
 const submit = document.getElementById("submit");
 
+alredyLogged();
 
-// Si l'utilisateur est déjà connecté, on supprime le token (Pour les tests)
+// Si l'utilisateur est déjà connecté, on supprime le token
 function alredyLogged() {
     if (localStorage.getItem("token")) {
         localStorage.removeItem("token");
-        alert("Vous êtes déjà connecté, pour les tests, nous avons supprimé votre token de connexion");
+
+        const p = document.createElement("p");
+        p.innerHTML = "<br><br><br>Vous avez été déconnecté, veuillez vous reconnecter";
+        alredyLoggedError.appendChild(p);
         return;
     }
 }

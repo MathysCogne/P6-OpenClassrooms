@@ -350,18 +350,14 @@ a{
 	align-items: center;
 }
 
+
+
+
+
+
+
+
 /* MODALE  */
-
-/* <aside class="modale" aria-hidden="true">
-	<i class="fa-solid fa-xmark"></i>
-	<h2>Galerie photo</h2>
-	<div>
-		<!-- generation des photos dynamiquement -->
-	</div>
-	<button>Ajouter une photo</button>
-	<a href="">Supprimer la galerie</a>
-</aside> */
-
 .modale{
 	position: fixed;
 	top: 0;
@@ -385,14 +381,10 @@ a{
 	display: flex;
 	flex-direction: column;
 
-	/* A CHANGER */
-	/* align-items: center;
-	justify-content: center; */
-
 	overflow: auto;
 	max-width: calc(98vh - 20px);
 	max-height: calc(98vh - 20px);
-	width: 700px;
+	width: 675px;
 	padding: 30px;
 	background-color: white;
 
@@ -427,24 +419,50 @@ a{
 .modale-wrapper h2{
 	display: flex;
 	justify-content: center;
+	margin: 20px 0 50px 0
 }
+
+.btn-admin{
+	display: flex;
+	justify-content: center;
+	width: 300px;
+	margin: 0px auto 20px auto;
+}
+.btn-clear-admin{
+	display: flex;
+	justify-content: center;
+	color: #D65353;
+	margin-bottom: 30px;
+}
+
 .js-admin-projets::after{
 	display: flex;
 	
 	content: " ";
 	border-top: 1px solid black;
 	height: 1px;
-	width: 80%;
-	margin: 30px auto;
+	width: 90%;
+	margin: 40px auto;
 }
-.btn-admin{
+
+.js-admin-projets{
+	width: 550px;
+	margin: 10px auto;
 	display: flex;
-	justify-content: center;
-	width: 300px;
-	margin: 30px auto;
+	flex-wrap: wrap;
 }
-.btn-clear-admin{
-	display: flex;
-	justify-content: center;
-	color: #D65353;
+.gallery__item-modale{
+	display: flex;	
+	flex-direction: column;
+	margin: 20px 5px;
+
+
+	width: 95px;
+	height: 120px;
+}
+.gallery__item-modale img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin-bottom: 5px;
 }
