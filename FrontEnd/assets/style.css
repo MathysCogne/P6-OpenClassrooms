@@ -484,7 +484,26 @@ a{
 	position: relative;
 	bottom: 15px;
 }
-
+.modale .js-modale-projet{	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	border: 2px solid #1D6154;
+	margin: 0 auto 30px auto;
+	height: 50px;
+	width: 250px;
+	border-radius: 60px ;
+	transition: all 0.5s ease;
+}
+.modale .js-modale-projet:hover{
+	color: #1D6154;
+	background-color: white;
+	scale: 1.05;
+}
 
 
 
@@ -641,6 +660,7 @@ a{
 	color: #1D6154;
 	background-color: white;
 	scale: 1.05;
+	cursor: pointer;
 }
 
 

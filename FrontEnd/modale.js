@@ -1,5 +1,11 @@
+// INDEX : 1- GESTION BOITE MODALE
+//         2- GESTION TOKEN LOGIN
+//         3- generationProjets Dans la modale
+//         4- GESTION SUPPRESSION PROJET
+//         5- GESTION AJOUT PROJET
+//         6- 
 ////////////////////////////////////////////////////
-////////////// GESTION BOITE MODALE ////////////////
+// INDEX : 1-// GESTION BOITE MODALE ////////////////
 ////////////////////////////////////////////////////
 
 let modale = null;
@@ -15,6 +21,9 @@ const openModale = function(e) {
 
     modaleProjets(dataAdmin); // Génère les projets dans la modale admin
     deleteWork()
+    // Ajout EventListener sur les boutons pour ouvrir la modale projet
+    document.querySelectorAll(".js-modale-projet").forEach(a => {
+        a.addEventListener("click", openModaleProjet)});
 
     // Apl fermeture modale
     modale.addEventListener("click", closeModale)
@@ -33,7 +42,6 @@ const closeModale = function(e) {
     modale.removeAttribute("aria-modal")
 
     modale.querySelector(".js-modale-close").removeEventListener("click", closeModale)
-    modale.querySelector(".js-modale-stop").removeEventListener("click", stopPropagation)
 
     // Fermeture de la modale apres 400ms 
     window.setTimeout(function() {
@@ -62,8 +70,12 @@ window.addEventListener("keydown", function(e) {
 });
 
 
+
+
+
+
 ////////////////////////////////////////////////////
-////////////// GESTION TOKEN LOGIN /////////////////
+// INDEX : 2-//// GESTION TOKEN LOGIN /////////////////
 ////////////////////////////////////////////////////
 
 // Récupération du token
@@ -89,9 +101,13 @@ function adminPanel() {
 
 
 
-////////////////////////////////////////////////////
-////////////// generationProjets Dans la modale ////
-////////////////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////////////////////
+// INDEX : 3-///// generationProjets Dans la modale /
+/////////////////////////////////////////////////////
 const modaleSectionProjets = document.querySelector(".js-admin-projets"); 
 
 let dataAdmin;
@@ -137,8 +153,12 @@ function modaleProjets(dataAdmin) {
 
 
 
+
+
+
+
 ////////////////////////////////////////////////////////////
-////////////// GESTION SUPPRESSION D'UN PROJET /////////////
+// INDEX : 4-// GESTION SUPPRESSION D'UN PROJET /////////////
 ////////////////////////////////////////////////////////////
 
 // Event listener sur les boutons supprimer par apport a leur id
@@ -190,3 +210,70 @@ async function refreshPage(i){
     const projet = document.querySelector(`.js-projet-${i}`);
     projet.style.display = "none";
 }
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////
+// INDEX : 5-/ GESTION BOITE MODALE AJOUT PROJET ///
+////////////////////////////////////////////////////
+let modaleProjet = null;
+
+// Ouverture de la modale projet
+
+const openModaleProjet = function(e) {
+    e.preventDefault()
+    modaleProjet = document.querySelector(e.target.getAttribute("href"))
+
+    modaleProjet.style.display = null
+    modaleProjet.removeAttribute("aria-hidden")
+    modaleProjet.setAttribute("aria-modal", "true")
+
+    // Apl fermeture modale
+    modaleProjet.addEventListener("click", closeModaleProjet)
+    modaleProjet.querySelector(".js-modale-close").addEventListener("click", closeModaleProjet)
+    modaleProjet.querySelector(".js-modale-stop").addEventListener("click", stopPropagation)
+
+    modaleProjet.querySelector(".js-modale-return").addEventListener("click", backToModale)
+};
+
+
+// Fermeture de la modale projet
+
+const closeModaleProjet = function(e) {
+    e.preventDefault()
+    if (modaleProjet === null) return
+
+    modaleProjet.setAttribute("aria-hidden", "true")
+    modaleProjet.removeAttribute("aria-modal")
+
+    modaleProjet.querySelector(".js-modale-close").removeEventListener("click", closeModaleProjet)
+    modaleProjet.querySelector(".js-modale-stop").removeEventListener("click", stopPropagation)
+
+    modaleProjet.style.display = "none"
+    modaleProjet = null
+    
+    closeModale(e)
+};
+
+// fermerture de la modale avec la touche echap
+window.addEventListener("keydown", function(e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+        closeModaleProjet(e)
+    }
+});
+
+
+
+// Retour au modale admin
+const backToModale = function(e) {
+    e.preventDefault()
+    modaleProjet.style.display = "none"
+    modaleProjet = null
+};
