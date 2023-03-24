@@ -36,6 +36,11 @@ function generationProjets(data, id) {
     console.log(data, id)
     resetSectionProjets()
 
+    // Filtre les résultats
+    if ([1, 2, 3].includes(id)) {
+        data = data.filter(data => data.categoryId == id);
+    }
+
     if (data.length === 0 || data === undefined) { 
         const p = document.createElement("p");
         p.classList.add("error");
@@ -43,11 +48,6 @@ function generationProjets(data, id) {
         sectionProjets.appendChild(p);
         return;
     }
-    // Filtre les résultats
-    if ([1, 2, 3].includes(id)) {
-        data = data.filter(data => data.categoryId == id);
-    }
-
     // Change la couleur du bouton en fonction du filtre
     document.querySelectorAll(".filter__btn").forEach(btn => {
         btn.classList.remove("filter__btn--active");})
@@ -59,7 +59,7 @@ function generationProjets(data, id) {
             
             const figure = document.createElement("figure"); 
             sectionProjets.appendChild(figure);
-
+            figure.classList.add(`js-projet-${data[i].id}`); // Ajoute l'id du projet pour le lien vers la modale lors de la supression 
             const img = document.createElement("img");
             img.src = data[i].imageUrl;
             img.alt = data[i].title;

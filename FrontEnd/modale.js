@@ -14,6 +14,7 @@ const openModale = function(e) {
     modale.setAttribute("aria-modal", "true")
 
     modaleProjets(dataAdmin); // Génère les projets dans la modale admin
+    deleteWork()
 
     // Apl fermeture modale
     modale.addEventListener("click", closeModale)
@@ -34,11 +35,11 @@ const closeModale = function(e) {
     modale.querySelector(".js-modale-close").removeEventListener("click", closeModale)
     modale.querySelector(".js-modale-stop").removeEventListener("click", stopPropagation)
 
-    // Fermeture de la modale apres 500ms 
+    // Fermeture de la modale apres 400ms 
     window.setTimeout(function() {
-        resetmodaleSectionProjets()
         modale.style.display = "none"
         modale = null
+        resetmodaleSectionProjets()
     }, 400)
 };
 
@@ -69,11 +70,12 @@ window.addEventListener("keydown", function(e) {
 const token = localStorage.getItem("token");
 const AlredyLogged = document.querySelector(".js-alredy-logged");
 
-adminPanel()
 
+
+adminPanel()
+// Gestion de l'affichage des boutons admin
 function adminPanel() {
     document.querySelectorAll(".admin__modifer").forEach(a => {
-        console.log(a)
         if (token === null) {
             return;
         }
@@ -97,6 +99,8 @@ let dataAdmin;
 const response = await fetch('http://localhost:5678/api/works'); 
 dataAdmin = await response.json();
 
+
+
 // Reset la section projets
 function resetmodaleSectionProjets() {  
 	modaleSectionProjets.innerHTML = "";
@@ -119,7 +123,7 @@ function modaleProjets(dataAdmin) {
         const a = document.createElement("a");
         div.appendChild(a);
         a.setAttribute("href", "#")
-        a.classList.add(i);
+        a.classList.add(dataAdmin[i].id, "js-delete-work");
 
         const icon = document.createElement("i");
         icon.classList.add("fa-solid", "fa-trash-can"); 
@@ -129,4 +133,60 @@ function modaleProjets(dataAdmin) {
         p.innerHTML = "Éditer";
         div.appendChild(p);
     }
+}
+
+
+
+////////////////////////////////////////////////////////////
+////////////// GESTION SUPPRESSION D'UN PROJET /////////////
+////////////////////////////////////////////////////////////
+
+// Event listener sur les boutons supprimer par apport a leur id
+function deleteWork() {
+    let btnDelete = document.querySelectorAll(".js-delete-work");
+    for (let i = 0; i < btnDelete.length; i++) {
+        btnDelete[i].addEventListener("click", deleteProjets);
+    }
+}
+
+
+// Supprimer le projet
+async function deleteProjets() {
+    console.log("DEBUG DEBUT DE FUNCTION SUPRESSION")
+    console.log(this.classList[0])
+    console.log(token)
+
+    await fetch(`http://localhost:5678/api/works/${this.classList[0]}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}`},
+    })
+
+    .then (response => {
+        console.log(response)
+        // Token good
+        if (response.status === 204) {
+            console.log("DEBUG SUPPRESION DU PROJET" + this.classList[0])
+            refreshPage(this.classList[0])
+        }
+        // Token inorrect
+        else if (response.status === 401) {
+            alert("Vous n'êtes pas autorisé à supprimer ce projet, merci de vous connecter avec un compte valide")
+            window.location.href = "login.html";
+        }
+    })
+    .catch (error => {
+        console.log(error)
+    })
+}
+
+// Rafraichit les projets sans recharger la page
+async function refreshPage(i){
+    const response = await fetch('http://localhost:5678/api/works'); 
+    dataAdmin = await response.json();
+    modaleProjets(dataAdmin); // Re lance une génération des projets dans la modale admin
+    deleteWork() // Re Event listener sur les boutons supprimer
+    
+    // supprime le projet de la page d'accueil
+    const projet = document.querySelector(`.js-projet-${i}`);
+    projet.style.display = "none";
 }
