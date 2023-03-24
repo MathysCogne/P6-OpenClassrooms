@@ -38,42 +38,42 @@
 	</div>
 </aside>
 
-<aside id="modale-projet" class="modale-projet" aria-hidden="true">
+<aside id="modale-projet" class="modale-projet" aria-hidden="true"  style="display: none;">
 	<div class="modale-wrapper js-modale-stop">
 		<div class="modale-projet-logo">
-			<a href="" class="js-modale-close">
-				<i class="fa-solid fa-xmark"></i>
-			</a>
 			<a href="" class="js-modale-return">
 				<i class="fa-solid fa-arrow-left"></i>
 			</a>
+			<a href="" class="js-modale-close">
+				<i class="fa-solid fa-xmark"></i>
+			</a>
 		</div>
 
-		<h2>Ajout photo</h2>
+		<h2>Ajout d'un projet</h2>
 
 		<form class="modale-projet-form" action="">
-			<!-- ajout d'une photo -->
-			<div class="form-group">
-				<label for="photo">Photo</label>
-				<input type="file" name="photo" id="photo">
+
+			<div class="form-group-photo">
+				<i class="fa-regular fa-image"></i>
+				<label for="photo">+ Ajouter une photo</label>
+				<input type="file" name="photo" id="photo" accept=".pnj, .jpg">
 			</div>
-			<!-- ajout d'un titre -->
-			<div class="form-group">
+
+			<div class="form-group-title">
 				<label for="titre">Titre</label>
 				<input type="text" name="titre" id="titre">
 			</div>
-			<!-- chjoix de la catégorie -->
-			<div class="form-group">
+
+			<div class="form-group-id">
 				<label for="categorie">Catégorie</label>
-				<select name="categorie" id="categorie">
+				<select name="categorie" id="categorie" >
 					<option value="1">Objets</option>
 					<option value="2">Appartements</option>
 					<option value="3">Hôtels & restaurants</option>
 				</select>
 			</div>
-			<!-- fin du formaulaire -->
-				button class="btn-admin">Ajouter une photo</button>
 
+			<input type="submit" value="Ajouter le projet">
 		</form>
 	</div>
 </aside>
