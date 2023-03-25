@@ -61,7 +61,7 @@ header {
 	margin: 50px 0;
 }
 section {
-	margin: 50px 0;
+	margin: 70px 0;
 }
 
 h1{
@@ -154,6 +154,10 @@ figcaption {
 figure {
 	width: 100%;
 	height: 500px;
+}
+#introduction figure {
+	width: 100%;
+	height: auto;
 }
 #contact {
 	width: 50%;
@@ -382,7 +386,7 @@ a{
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
 
-	animation: fadeIn 0.4s both;
+	animation: fadeIn 0.2s both;
 }
 .modale[aria-hidden="true"]{
 	animation-name: fadeOff;
@@ -399,7 +403,7 @@ a{
 	padding: 30px;
 	background-color: white;
 
-	animation: slideFromTop 0.4s both;
+	animation: slideFromTop 0.2s both;
 }
 .modale[aria-hidden="true"] .modale-wrapper{
 	animation-name: slideFromBottom;
@@ -683,3 +687,4 @@ a{
 	position: absolute;
 	bottom: 120px;
 }
+

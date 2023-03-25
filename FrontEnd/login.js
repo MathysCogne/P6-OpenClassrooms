@@ -63,10 +63,11 @@ function login(id) {
     .then(result => { 
         console.log(result);
         // Si couple email/mdp incorrect
-        if (result.error) {
+        if (result.error || result.message) {
             const p = document.createElement("p");
             p.innerHTML = "La combinaison e-mail/mot de passe est incorrecte";
             loginMdpError.appendChild(p);
+
         // Si couple email/mdp correct
         } else if (result.token) {
             localStorage.setItem("token", result.token);
@@ -76,6 +77,7 @@ function login(id) {
     })
     // prevenir l'utilisateur en cas d'erreur
     
-    .catch(error => console.log('error', error) );
+    .catch(error => 
+        console.log(error));
 }
 }
