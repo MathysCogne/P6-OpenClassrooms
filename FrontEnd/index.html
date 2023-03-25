@@ -53,29 +53,29 @@
 
 		<h2>Ajout d'un projet</h2>
 
-		<form class="modale-projet-form" action="">
+		<form class="modale-projet-form" action="" enctype="multipart/form-data">
 
 			<div class="form-group-photo">
 				<i class="fa-regular fa-image"></i>
 				<label for="photo">+ Ajouter une photo</label>
-				<input type="file" name="photo" id="photo" accept=".pnj, .jpg">
+				<input type="file" name="photo" id="photo" class="js-image">
 			</div>
 
 			<div class="form-group-title">
 				<label for="titre">Titre</label>
-				<input type="text" name="titre" id="titre">
+				<input class="js-title" type="text" name="titre" id="titre">
 			</div>
 
 			<div class="form-group-id">
 				<label for="categorie">Catégorie</label>
-				<select name="categorie" id="categorie" >
+				<select name="categorie" id="categorie" class="js-categoryId">
 					<option value="1">Objets</option>
 					<option value="2">Appartements</option>
 					<option value="3">Hôtels & restaurants</option>
 				</select>
 			</div>
 
-			<input type="submit" value="Ajouter le projet">
+			<input type="submit" class="js-add-work" value="Ajouter le projet">
 		</form>
 	</div>
 </aside>
