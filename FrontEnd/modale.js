@@ -11,6 +11,7 @@ const btnId3 = document.querySelector(".filter__btn-id-3");
 const sectionProjets = document.querySelector(".gallery"); 
 
 let data = null;
+let id;
 generationProjets(data, null);
 
 // Reset la section projets
@@ -39,17 +40,17 @@ async function generationProjets(data, id) {
     if ([1, 2, 3].includes(id)) {
         data = data.filter(data => data.categoryId == id);}
 
+     // Change la couleur du bouton en fonction du filtre
+    document.querySelectorAll(".filter__btn").forEach(btn => {
+        btn.classList.remove("filter__btn--active");})
+    document.querySelector(`.filter__btn-id-${id}`).classList.add("filter__btn--active");
+
     if (data.length === 0 || data === undefined) { 
         const p = document.createElement("p");
         p.classList.add("error");
         p.innerHTML = "Aucun projet à afficher <br><br>Toutes nos excuses pour la gêne occasionnée";
         sectionProjets.appendChild(p);
         return;}
-
-    // Change la couleur du bouton en fonction du filtre
-    document.querySelectorAll(".filter__btn").forEach(btn => {
-        btn.classList.remove("filter__btn--active");})
-    document.querySelector(`.filter__btn-id-${id}`).classList.add("filter__btn--active");
 
     // Génère les projets
     if (id === null || [1, 2, 3].includes(id)) {
@@ -148,18 +149,18 @@ async function modaleProjets() {
         img.alt = dataAdmin[i].title;
         div.appendChild(img);
 
-        const a = document.createElement("a");
-        div.appendChild(a);
-        a.setAttribute("href", "#")
-        a.classList.add(dataAdmin[i].id, "js-delete-work");
+        const p = document.createElement("p");
+        div.appendChild(p);
+        p.classList.add(dataAdmin[i].id, "js-delete-work");
+
 
         const icon = document.createElement("i");
         icon.classList.add("fa-solid", "fa-trash-can"); 
-        a.appendChild(icon);
+        p.appendChild(icon);
 
-        const p = document.createElement("p");
-        p.innerHTML = "Éditer";
-        div.appendChild(p);
+        const a = document.createElement("a");
+        a.innerHTML = "Éditer";
+        div.appendChild(a);
     }
     deleteWork()
 }
@@ -236,6 +237,7 @@ function deleteWork() {
 
 // Supprimer le projet
 async function deleteProjets() {
+
     console.log("DEBUG DEBUT DE FUNCTION SUPRESSION")
     console.log(this.classList[0])
     console.log(token)
@@ -249,7 +251,7 @@ async function deleteProjets() {
         console.log(response)
         // Token good
         if (response.status === 204) {
-            console.log("DEBUG SUPPRESION DU PROJET" + this.classList[0])
+            console.log("DEBUG SUPPRESION DU PROJET " + this.classList[0])
             refreshPage(this.classList[0])
         }
         // Token inorrect
@@ -321,9 +323,9 @@ const backToModale = function(e) {
 };
 
 
-////////////////////////////////////////////////////
-// INDEX : 5-/ GESTION AJOUT D'UN PROJET        ///
-////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////
+// // INDEX : 5-/ GESTION AJOUT D'UN PROJET        ///
+// ////////////////////////////////////////////////////
 
 const btnAjouterProjet = document.querySelector(".js-add-work");
 btnAjouterProjet.addEventListener("click", addWork);
@@ -355,7 +357,6 @@ async function addWork(event) {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
-
             body: formData,
         });
 
@@ -363,7 +364,7 @@ async function addWork(event) {
             alert("Projet ajouté avec succès :)");
             modaleProjets(dataAdmin);
             backToModale(event);
-            generationProjets(data, id);
+            generationProjets(data, null);
             
         } else if (response.status === 400) {
             alert("Merci de remplir tous les champs");

@@ -486,14 +486,15 @@ a{
 	padding: 5px;
 	border-radius: 20%;
 }
-.gallery__item-modale a{
+.gallery__item-modale p{
 	position: relative;
 	bottom: 116px;
 	left: 68px; 
 	width: 30px;
 	height: 30px;
+	cursor: pointer;
 }
-.gallery__item-modale p{
+.gallery__item-modale a{
 	position: relative;
 	bottom: 15px;
 }
