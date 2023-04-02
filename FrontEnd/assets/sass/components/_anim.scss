@@ -1,4 +1,96 @@
+/* ANIM */
 html {
 	scroll-behavior: smooth;
 }
 
+.filter__btn:hover, .btn-admin:hover{
+	color: white;
+	background-color: #1D6154;
+	scale: 1.05;
+}
+
+
+.admin__rod button:hover{
+	background-color: #1D6154;
+	color: white;
+}
+
+.login__form input[type="submit"]:hover{
+	color: #1D6154;
+	background-color: white;
+	scale: 1.05;
+}
+
+.login a:hover {
+	color: #B1663C;
+}
+
+
+
+/* MODALE GALERIE PHOTO  */
+.modale[aria-hidden="true"]{
+	animation-name: fadeOff;
+}
+.modale[aria-hidden="true"] .modale-wrapper{
+	animation-name: slideFromBottom;
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@keyframes slideFromTop {
+	from {transform: translateY(-75px);}
+	to {transform: translateY(0px);}
+}
+
+@keyframes fadeOff {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@keyframes slideFromBottom {
+	from {transform: translateY(0px);}
+	to {transform: translateY(75px);}
+}
+
+.modale .js-modale-projet:hover{
+	color: #1D6154;
+	background-color: white;
+	scale: 1.05;
+}
+
+
+/* MODALE AJOUT PROJET  */
+.modale-projet[aria-hidden="true"] .modale-wrapper{
+	animation-name: slideFromBottom;
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@keyframes slideFromTop {
+	from {transform: translateY(-75px);}
+	to {transform: translateY(0px);}
+}
+
+@keyframes fadeOff {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@keyframes slideFromBottom {
+	from {transform: translateY(0px);}
+	to {transform: translateY(75px);}
+}
+
+
+.form-group-photo label:hover {
+	background-color: #306685;
+	color: white;
+}
+.modale-projet-form input[type="submit"]:hover{
+	color: #1D6154;
+	background-color: white;
+	scale: 1.05;
+	cursor: pointer;
+}

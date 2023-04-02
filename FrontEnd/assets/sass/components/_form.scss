@@ -1,0 +1,189 @@
+/* FORM */
+#contact {
+	width: 50%;
+    margin: auto;
+}
+#contact > * {
+	text-align: center;
+}
+#contact h2{
+	margin-bottom: 20px;
+}
+#contact form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+}
+#contact label {
+	margin: 2em 0 1em 0;
+}
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 3em auto;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+	transition: all 0.5s ease;
+	border: 2px solid #1D6154;
+}
+#contact input[type="submit"]:hover{
+	color: #1D6154;
+	background-color: white;
+	scale: 1.05;
+}
+
+//  ////////////////////////////////
+
+.login__form{
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	width: 35%;
+}
+.login__form input{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.login__form label{
+	margin: 3em 0 1em 0;
+}
+.login__form textarea{
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.login__form input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	border: 2px solid #1D6154;
+	margin : 3em auto;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+	transition: all 0.5s ease;
+}
+
+// ////////////////////////////////
+
+.modale-projet-form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.form-group-photo{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color: #E8F1F7;
+	width: 500px;
+	height: 200px;
+	border-radius: 10px;
+}
+.form-group-photo i{
+	color: #306685;
+	font-size: 90px;
+	font-weight: 100;
+	margin: 20px;
+	margin-top: -25px;
+}
+.form-group-photo input {
+	display: none;
+}
+.form-group-photo label {
+	font-family: 'work sans';
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 40px;
+	background-color: #CBD6DC;
+	color: #306685;
+	border-radius: 50px;
+	cursor: pointer;
+	margin-top: -10px;
+}
+.form-group-photo::after {
+	content: "jpg, png : 4mo max";
+	position: absolute;
+	top: 315px;
+}
+
+
+
+
+.form-group-title{
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+}
+.form-group-title input{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.form-group-title label{
+	margin: 3em 0 1em 0;
+}
+
+
+
+.form-group-id{
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+}
+.form-group-id select{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.form-group-id label{
+	margin: 3em 0 1em 0;
+}
+
+.modale-projet-form input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	border: 2px solid #1D6154;
+	margin: 120px 0 30px 0;
+	height: 50px;
+	width: 250px;
+	text-align: center;
+	border-radius: 60px ;
+	transition: all 0.5s ease;
+}
+
+
+.modale-projet-form::after{
+	content: " ";
+	border-top: 1px solid black;
+	height: 1px;
+	width: 70%;
+	margin: 40px auto;
+	position: absolute;
+	bottom: 120px;
+}

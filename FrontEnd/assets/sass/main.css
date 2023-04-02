@@ -48,18 +48,13 @@ table {
 }
 
 /** end reset css**/
+/* BASE */
 body {
   max-width: 1140px;
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
   background-color: #FFFEF8;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 50px 0;
 }
 
 section {
@@ -174,93 +169,15 @@ figure {
   height: auto;
 }
 
-#contact {
-  width: 50%;
-  margin: auto;
-}
-
-#contact > * {
-  text-align: center;
-}
-
-#contact h2 {
-  margin-bottom: 20px;
-}
-
-#contact form {
-  text-align: left;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-}
-
-#contact input {
-  height: 50px;
-  font-size: 1.2em;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-  border: none;
-}
-
-#contact label {
-  margin: 2em 0 1em 0;
-}
-
-#contact textarea {
-  border: none;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-#contact input[type=submit] {
-  font-family: "Syne";
-  font-weight: 700;
-  color: white;
-  background-color: #1D6154;
-  margin: 3em auto;
-  width: 180px;
-  text-align: center;
-  border-radius: 60px;
-  transition: all 0.5s ease;
-  border: 2px solid #1D6154;
-}
-
-#contact input[type=submit]:hover {
-  color: #1D6154;
-  background-color: white;
-  scale: 1.05;
-}
-
-footer nav ul {
-  display: flex;
-  justify-content: flex-end;
-  margin: 2em;
-}
-
+/* TYPO */ /* ANIM */
 html {
   scroll-behavior: smooth;
 }
 
-/* ADMIN EDITION MODE  */
-.admin__rod {
-  position: fixed;
-  right: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-  background-color: black;
-}
-
-.admin__rod button {
-  font-family: "work sans";
-  font-weight: 550;
-  background-color: white;
-  border-radius: 60px;
-  padding: 5px 15px;
-  margin: 0 25px;
-  border: none;
-  transition: all 0.2s ease;
+.filter__btn:hover, .btn-admin:hover {
+  color: white;
+  background-color: #1D6154;
+  scale: 1.05;
 }
 
 .admin__rod button:hover {
@@ -268,51 +185,19 @@ html {
   color: white;
 }
 
-.admin__modifer {
-  display: flex;
-  -moz-column-gap: 5px;
-       column-gap: 5px;
-  color: black;
+.login__form input[type=submit]:hover {
+  color: #1D6154;
+  background-color: white;
+  scale: 1.05;
 }
 
-.admin__rod .admin__modifer {
-  color: white;
+.login a:hover {
+  color: #B1663C;
 }
 
-.portfolio-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* MODALE  */
-.modale {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  animation: fadeIn 0.2s both;
-}
-
+/* MODALE GALERIE PHOTO  */
 .modale[aria-hidden=true] {
   animation-name: fadeOff;
-}
-
-.modale-wrapper {
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  max-width: calc(98vh - 20px);
-  max-height: calc(98vh - 20px);
-  width: 675px;
-  padding: 30px;
-  background-color: white;
-  animation: slideFromTop 0.2s both;
 }
 
 .modale[aria-hidden=true] .modale-wrapper {
@@ -351,6 +236,129 @@ html {
     transform: translateY(75px);
   }
 }
+.modale .js-modale-projet:hover {
+  color: #1D6154;
+  background-color: white;
+  scale: 1.05;
+}
+
+/* MODALE AJOUT PROJET  */
+.modale-projet[aria-hidden=true] .modale-wrapper {
+  animation-name: slideFromBottom;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-75px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes fadeOff {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(75px);
+  }
+}
+.form-group-photo label:hover {
+  background-color: #306685;
+  color: white;
+}
+
+.modale-projet-form input[type=submit]:hover {
+  color: #1D6154;
+  background-color: white;
+  scale: 1.05;
+  cursor: pointer;
+}
+
+/* ADMIN */
+/* ADMIN EDITION MODE  */
+.admin__rod {
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: black;
+}
+
+.admin__rod button {
+  font-family: "work sans";
+  font-weight: 550;
+  background-color: white;
+  border-radius: 60px;
+  padding: 5px 15px;
+  margin: 0 25px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.admin__modifer {
+  display: flex;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  color: black;
+}
+
+.admin__rod .admin__modifer {
+  color: white;
+}
+
+.portfolio-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MODALE  GALERIE PHOTO*/
+.modale {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.2s both;
+}
+
+.modale-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  max-width: calc(98vh - 20px);
+  max-height: calc(98vh - 20px);
+  width: 675px;
+  padding: 30px;
+  background-color: white;
+  animation: slideFromTop 0.2s both;
+}
+
 .js-modale-close {
   display: flex;
   justify-content: flex-end;
@@ -445,12 +453,6 @@ html {
   transition: all 0.5s ease;
 }
 
-.modale .js-modale-projet:hover {
-  color: #1D6154;
-  background-color: white;
-  scale: 1.05;
-}
-
 /* MODALE AJOUT PROJET */
 .modale-projet {
   position: fixed;
@@ -471,42 +473,97 @@ html {
   align-items: center;
 }
 
-.modale-projet[aria-hidden=true] .modale-wrapper {
-  animation-name: slideFromBottom;
+/* FORM */
+#contact {
+  width: 50%;
+  margin: auto;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#contact > * {
+  text-align: center;
 }
-@keyframes slideFromTop {
-  from {
-    transform: translateY(-75px);
-  }
-  to {
-    transform: translateY(0px);
-  }
+
+#contact h2 {
+  margin-bottom: 20px;
 }
-@keyframes fadeOff {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+
+#contact form {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
-@keyframes slideFromBottom {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(75px);
-  }
+
+#contact input {
+  height: 50px;
+  font-size: 1.2em;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
 }
+
+#contact label {
+  margin: 2em 0 1em 0;
+}
+
+#contact textarea {
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#contact input[type=submit] {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 3em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+  transition: all 0.5s ease;
+  border: 2px solid #1D6154;
+}
+
+#contact input[type=submit]:hover {
+  color: #1D6154;
+  background-color: white;
+  scale: 1.05;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 35%;
+}
+
+.login__form input {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.login__form label {
+  margin: 3em 0 1em 0;
+}
+
+.login__form textarea {
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.login__form input[type=submit] {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  border: 2px solid #1D6154;
+  margin: 3em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+  transition: all 0.5s ease;
+}
+
 .modale-projet-form {
   display: flex;
   flex-direction: column;
@@ -554,11 +611,6 @@ html {
   content: "jpg, png : 4mo max";
   position: absolute;
   top: 315px;
-}
-
-.form-group-photo label:hover {
-  background-color: #306685;
-  color: white;
 }
 
 .form-group-title {
@@ -609,13 +661,6 @@ html {
   transition: all 0.5s ease;
 }
 
-.modale-projet-form input[type=submit]:hover {
-  color: #1D6154;
-  background-color: white;
-  scale: 1.05;
-  cursor: pointer;
-}
-
 .modale-projet-form::after {
   content: " ";
   border-top: 1px solid black;
@@ -631,7 +676,20 @@ a {
   color: #1D6154;
 }
 
-/* GESTION DES PROJETS / FILTRES */
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+/* FOOTER */
+footer nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
+}
+
+/* FILTER */
 .error {
   grid-column: 2;
   margin: 30px 0;
@@ -659,12 +717,6 @@ a {
   transition: all 0.5s ease;
 }
 
-.filter__btn:hover, .btn-admin:hover {
-  color: white;
-  background-color: #1D6154;
-  scale: 1.05;
-}
-
 .filter__btn--active, .btn-admin {
   color: white;
   background-color: #1D6154;
@@ -684,47 +736,4 @@ a {
   margin-bottom: 100px;
 }
 
-.login a:hover {
-  color: #B1663C;
-}
-
-.login__form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  width: 35%;
-}
-
-.login__form input {
-  height: 50px;
-  font-size: 1.2em;
-  border: none;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-.login__form label {
-  margin: 3em 0 1em 0;
-}
-
-.login__form textarea {
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-.login__form input[type=submit] {
-  font-family: "Syne";
-  font-weight: 700;
-  color: white;
-  background-color: #1D6154;
-  border: 2px solid #1D6154;
-  margin: 3em auto;
-  width: 180px;
-  text-align: center;
-  border-radius: 60px;
-  transition: all 0.5s ease;
-}
-
-.login__form input[type=submit]:hover {
-  color: #1D6154;
-  background-color: white;
-  scale: 1.05;
-}/*# sourceMappingURL=main.css.map */
+/* VARIABLES *//*# sourceMappingURL=main.css.map */

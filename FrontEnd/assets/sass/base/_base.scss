@@ -41,8 +41,7 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
-
-
+/* BASE */
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -51,11 +50,7 @@ body {
 	background-color: #FFFEF8;
 	
 }
-header {
-	display: flex;
-	justify-content: space-between;
-	margin: 50px 0;
-}
+
 section {
 	margin: 70px 0;
 }
@@ -154,59 +149,4 @@ figure {
 #introduction figure {
 	width: 100%;
 	height: auto;
-}
-#contact {
-	width: 50%;
-margin: auto;
-}
-#contact > * {
-	text-align: center;
-
-}
-#contact h2{
-	margin-bottom: 20px;
-}
-#contact form {
-	text-align: left;
-	margin-top:30px;
-	display: flex;
-	flex-direction: column;
-}
-
-#contact input {
-	height: 50px;
-	font-size: 1.2em;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	border: none;
-}
-#contact label {
-	margin: 2em 0 1em 0;
-}
-#contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-#contact input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 3em auto;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
-	transition: all 0.5s ease;
-	border: 2px solid #1D6154;
-}
-#contact input[type="submit"]:hover{
-	color: #1D6154;
-	background-color: white;
-	scale: 1.05;
-}
-
-footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em
 }
