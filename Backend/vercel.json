@@ -1,10 +1,10 @@
 {
-   "version": 2,
-   "name": "tuto",
-   "builds": [
-     { "src": "*.js", "use": "@vercel/node" }
-   ],
-   "routes": [
-     { "src": "/(.*)", "dest": "/" }
-   ]
+    "version": 2,
+    "name": "tuto",
+    "builds": [
+      { "src": "server.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/server.js" }
+    ]
 }
