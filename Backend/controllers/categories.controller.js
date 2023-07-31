@@ -1,4 +1,4 @@
-const db = require('./../models');
+const db = require('../models');
 const Categories = db.categories
 
 exports.findAll = async (req, res) =>  {
